@@ -1,0 +1,17 @@
+{
+  "name": "cr-slackbot",
+  "version": "0.0.1",
+  "description": "A code review slackbot",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "slack",
+    "bot",
+    "code",
+    "review"
+  ],
+  "author": "Joe Jackson",
+  "bin": { "crbot": "bin/crbot" },
+  "license": "MIT"
+}
