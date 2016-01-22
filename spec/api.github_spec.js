@@ -2,7 +2,7 @@
 var request = require("request"),
     base_url = "http://localhost:3000/",
     CrBot = require("../lib/crbot.js"),
-    crbot = new CrBot(require("../config.json"));
+    crbot = new CrBot(require("../config.example.json"));
 
 describe("CRBot Server", () => {
   var server;
