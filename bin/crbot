@@ -17,4 +17,6 @@ let name = process.env.BOT_NAME;
 
 let crbot = new CrBot({ token: token, name: name });
 
-crbot.run();
+// TODO: add a port flag
+
+crbot.app.listen(3000);

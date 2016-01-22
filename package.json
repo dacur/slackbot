@@ -2,8 +2,12 @@
   "name": "cr-slackbot",
   "version": "0.0.1",
   "description": "A code review slackbot",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/smashingboxes/code-review-bot.git"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/jasmine"
   },
   "keywords": [
     "slack",
@@ -12,6 +16,15 @@
     "review"
   ],
   "author": "Joe Jackson",
-  "bin": { "crbot": "bin/crbot" },
-  "license": "MIT"
+  "bin": {
+    "crbot": "bin/crbot"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "jasmine": "^2.4.1",
+    "request": "^2.67.0"
+  },
+  "dependencies": {
+    "express": "^4.13.4"
+  }
 }
