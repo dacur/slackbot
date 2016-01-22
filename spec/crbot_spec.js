@@ -13,9 +13,22 @@ describe("CRBot Server", function() {
     server.close()
   });
 
-  describe("GET /", function() {
-    it("returns a status code 200", function(done) {
-      request.get(base_url, function(error, response, body) {
+  describe("POST /code_review", function() {
+    it("returns 200", function(done) {
+      formData = {
+        token: "hfu1x6iRs4Hv3kfywP5YV65j",
+        team_id: "T0001",
+        team_domain: "example",
+        channel_id: "C2147483705",
+        channel_name: "test",
+        user_id: "U2147483697",
+        user_name: "Steve",
+        command: "/cr",
+        text: "github.com/smashingboxes/cr-bot/pulls/1",
+        response_url: "https://hooks.slack.com/commands/1234/5678"
+      }
+
+      request.post(base_url + 'code_review', { form: formData }, function(error, response, body) {
         expect(response.statusCode).toBe(200);
         done();
       });
