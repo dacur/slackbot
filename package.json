@@ -7,6 +7,7 @@
     "url": "git://github.com/smashingboxes/code-review-bot.git"
   },
   "scripts": {
+    "start": "bin/crbot",
     "test": "./node_modules/.bin/jasmine"
   },
   "keywords": [
@@ -25,6 +26,7 @@
     "request": "^2.67.0"
   },
   "dependencies": {
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "node-github": "0.0.3"
   }
 }

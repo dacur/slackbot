@@ -12,7 +12,7 @@ let CrBot = require('../lib/crbot');
  *  BOT_NAME: the username you want to give to the bot within your organisation.
  */
 
-let token = process.env.BOT_API_KEY || require("../token");
+let token = process.env.BOT_API_KEY || require("../config.json");
 let name = process.env.BOT_NAME;
 
 let crbot = new CrBot({ token: token, name: name });
