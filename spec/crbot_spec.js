@@ -3,18 +3,18 @@ var request = require("request"),
     CrBot = require("../lib/crbot.js"),
     crbot = new CrBot({ token: "token", name: "bot" });
 
-describe("CRBot Server", function() {
+describe("CRBot Server", () => {
   var server;
-  beforeAll(function(done) {
-    server = crbot.app.listen(3000, function() { done(); });
+  beforeAll((done) => {
+    server = crbot.app.listen(3000, () => { done(); });
   });
 
-  afterAll(function() {
+  afterAll(() => {
     server.close()
   });
 
-  describe("POST /code_review", function() {
-    it("returns 200", function(done) {
+  describe("POST /code_review", () => {
+    it("returns 200", (done) => {
       formData = {
         token: "hfu1x6iRs4Hv3kfywP5YV65j",
         team_id: "T0001",
@@ -28,7 +28,7 @@ describe("CRBot Server", function() {
         response_url: "https://hooks.slack.com/commands/1234/5678"
       }
 
-      request.post(base_url + 'code_review', { form: formData }, function(error, response, body) {
+      request.post(base_url + 'code_review', { form: formData }, (error, response, body) => {
         expect(response.statusCode).toBe(200);
         done();
       });
