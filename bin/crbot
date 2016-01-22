@@ -19,4 +19,4 @@ let crbot = new CrBot({ token: token, name: name });
 
 // TODO: add a port flag
 
-crbot.app.listen(3000);
+crbot.app.listen(8888);

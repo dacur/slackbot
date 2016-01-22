@@ -27,6 +27,8 @@
   },
   "dependencies": {
     "express": "^4.13.4",
-    "node-github": "0.0.3"
+    "node-github": "0.0.3",
+    "body-parser": "^1.14.2"
+
   }
 }
