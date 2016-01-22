@@ -1,10 +1,10 @@
 'use strict';
-var request = require("request"),
-    base_url = "http://localhost:3000/",
-    CrBot = require("../lib/crbot.js"),
-    crbot = new CrBot(require("../config.example.json"));
+var request = require('request'),
+    base_url = 'http://localhost:3000/',
+    CrBot = require('../lib/crbot.js'),
+    crbot = new CrBot(require('../config.example.json'));
 
-describe("CRBot Server", () => {
+describe('CRBot Server', () => {
   var server;
   beforeAll((done) => {
     server = crbot.app.listen(3000, () => { done(); });
@@ -14,14 +14,15 @@ describe("CRBot Server", () => {
     server.close();
   });
 
-  describe("POST /code_review With Data", () => {
-    it("returns 200", (done) => {
-      crbot.getPR({
+  describe('', () => {
+    it('returns 200', (done) => {
+      let prReq = {
           'user': 'smashingboxes',
           'repo': 'code-review-bot',
           'number' : '1'
-      }).then((response) => {
-        expect(response.url).toBe('https://api.github.com/repos/smashingboxes/code-review-bot/pulls/1');
+      };
+      crbot.getPR().then((response) => {
+        expect(response.url).toBe(`https://api.github.com/repos/${prReq.user}/${prReq.repo}/pulls/${prReq.number}`);
         done();
       });
     });
