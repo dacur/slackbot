@@ -1,11 +1,18 @@
 'use strict';
-var request = require('request'),
+var config;
+try {
+  config = require('../config.json');
+} catch (e) {
+  config = require('../config.example.json');
+}
+
+const request = require('request'),
     base_url = 'http://localhost:3000/',
     CrBot = require('../lib/crbot.js'),
-    crbot = new CrBot(require('../config.example.json'));
+    crbot = new CrBot(config);
 
 describe('CRBot Github API', () => {
-  var server;
+  let server;
   beforeAll((done) => {
     server = crbot.app.listen(3000, () => { done(); });
   });
@@ -21,11 +28,14 @@ describe('CRBot Github API', () => {
           'repo': 'code-review-bot',
           'number' : '1'
       };
-      crbot.getPR(prReq).then((response) => {
-        expect(response.url).toBe(`https://api.github.com/repos/${prReq.user}/${prReq.repo}/pulls/${prReq.number}`);
+
+      crbot.getPR(prReq).then((promises) => {
+        //console.log(promises);
+        expect(promises[0].url).toBe(`https://api.github.com/repos/${prReq.user}/${prReq.repo}/pulls/${prReq.number}`);
         done();
+      }).catch((err) => {
+        console.log('ERRR',err);
       });
     });
   });
-  
 });
