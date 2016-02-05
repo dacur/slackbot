@@ -15,7 +15,7 @@
     "production" : {
       "user" : "node",
       "host" : "192.241.245.154",
-      "ref"  : "origin/feature/pm2deploy",
+      "ref"  : "origin/master",
       "repo" : "https://github.com/smashingboxes/code-review-bot.git",
       "path" : "/home/node/production",
       "post-deploy" : "npm install; pm2 startOrRestart ecosystem.json --env production"
