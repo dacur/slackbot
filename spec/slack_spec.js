@@ -3,7 +3,7 @@
 let nock = require('nock');
 let mockSlack = require('./support/mockSlack');
 let SlackAPI = require('../lib/api.slack.js');
-let CrBot = require('../lib/CrBot');
+let CrBot = require('../lib/crbot');
 let crBot = new CrBot(require('../config.json'));
 let slack = new SlackAPI(crBot);
 
