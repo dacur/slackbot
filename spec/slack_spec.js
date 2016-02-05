@@ -1,11 +1,23 @@
 'use strict';
 
-let Slack = require('../lib/slack.js');
+let nock = require('nock');
+let mockSlack = require('./support/mockSlack');
+let SlackAPI = require('../lib/api.slack.js');
 let CrBot = require('../lib/CrBot');
 let crBot = new CrBot(require('../config.json'));
-let slack = new Slack(crBot);
+let slack = new SlackAPI(crBot);
 
 describe('Slack', () => {
+  beforeAll(() => {
+    nock.disableNetConnect();
+    mockSlack();
+  });
+
+  afterAll(() => {
+    nock.cleanAll();
+    nock.enableNetConnect();
+  });
+
   describe('Slack#createCRMessage', () => {
     it('creates a slack message from the code review', (done) => {
       let codeReview = { channelID: "C0K673QFM" };
