@@ -4,7 +4,7 @@ const request = require('request');
 const base_url = 'http://localhost:3000/';
 const CrBot = require('../lib/crbot.js');
 const crbot = new CrBot(require('../config.json'));
-const mockGithub = require('./mockGithub.js');
+const mockGithub = require('./support/mockGithub.js');
 const nock = require('nock');
 
 

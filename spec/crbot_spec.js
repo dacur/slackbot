@@ -1,19 +1,29 @@
 'use strict';
 
-const request = require('request'),
-    base_url = 'http://localhost:3000/',
-    CrBot = require('../lib/crbot.js'),
-    crbot = new CrBot(require('../config.json'));
+const request = require('request');
+const base_url = 'http://localhost:3000/';
+const CrBot = require('../lib/crbot.js');
+const crbot = new CrBot(require('../config.json'));
+
+const mockGithub = require('./support/mockGithub.js');
+const mockSlack = require('./support/mockSlack.js');
+const nock = require('nock');
 
 describe('CRBot Server', () => {
   let server, formData;
 
   beforeAll((done) => {
     server = crbot.app.listen(3000, () => { done(); });
+    nock.disableNetConnect();
+    nock.enableNetConnect(base_url);
+    mockGithub();
+    mockSlack();
   });
 
   afterAll(() => {
     server.close();
+    nock.cleanAll();
+    nock.enableNetConnect();
   });
 
   describe('POST /code_review', () => {
