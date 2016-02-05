@@ -1,0 +1,24 @@
+{
+  "apps" : [
+    {
+      "name"      : "Code Review Bot",
+      "script"    : "bin/crbot",
+      "env": {
+        "COMMON_VARIABLE": "true"
+      },
+      "env_production" : {
+        "NODE_ENV": "production"
+      }
+    }
+  ],
+  "deploy" : {
+    "production" : {
+      "user" : "node",
+      "host" : "192.241.245.154",
+      "ref"  : "origin/master",
+      "repo" : "https://github.com/smashingboxes/code-review-bot.git",
+      "path" : "/home/node/production",
+      "post-deploy" : "npm install; pm2 startOrRestart ecosystem.json --env production"
+    }
+  }
+}
