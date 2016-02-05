@@ -22,17 +22,17 @@ describe('Slack', () => {
     it('creates a slack message from the code review', (done) => {
       let codeReview = { channelID: "C0K673QFM" };
       slack.createCRMessage(codeReview).then((codeReview) => {
-        expect(codeReview.messageID).not.toBe(undefined);
+        expect(codeReview.messageIDs.length).toBe(1);
         done();
       });
     });
   });
 
-  describe('Slack#deleteCRMessage', () => {
-    it('deletes a slack message based on messageID', (done) => {
+  describe('Slack#deleteCRMessages', () => {
+    it('deletes all slack messages based on a codeReview', (done) => {
       let codeReview = { channelID: "C0K673QFM" };
       slack.createCRMessage(codeReview).then((codeReview) => {
-        return slack.deleteCRMessage(codeReview);
+        return slack.deleteCRMessages(codeReview);
       }).then((codeReview) => {
         done();
       });
@@ -47,6 +47,16 @@ describe('Slack', () => {
       }).then((codeReview) => {
         done();
       });
+    });
+  });
+
+  describe('Slack#repostCR', () => {
+    it('posts to the channel with @here', (done) => {
+      let codeReview = { channelID: "C0K673QFM" };
+      slack.createCRMessage(codeReview)
+        .then(codeReview => slack.repostCR(codeReview))
+        .then(codeReview => expect(codeReview.messageIDs.length).toBe(2))
+        .then(() => done());
     });
   });
 });
