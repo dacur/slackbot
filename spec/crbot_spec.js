@@ -19,7 +19,7 @@ describe('CRBot Server', () => {
   describe('POST /code_review', () => {
     it('returns 200', (done) => {
       formData = {
-        token: 'hfu1x6iRs4Hv3kfywP5YV65j',
+        token: 'test-token',
         team_id: 'T0001',
         team_domain: 'example',
         channel_id: 'C2147483705',
