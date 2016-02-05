@@ -5,7 +5,7 @@ let nock = require('nock');
 module.exports = () => {
   nock('https://slack.com:443', {"encodedQueryParams":true})
     .get('/api/chat.postMessage')
-    .query({"token":"xoxb-19207505700-wwXgGMCWEVqSXFHpq6bOLz3A","channel":"C0K673QFM","text":"Dummy%20message%20for%20now","as_user":"true"})
+    .query(true)
     .reply(200, {"ok":true,"channel":"C0K673QFM","ts":"1454703683.000018","message":{"type":"message","user":"U0K63EVLL","text":"Dummy message for now","ts":"1454703683.000018"}}, { 'content-type': 'application/json; charset=utf-8',
     'content-length': '162',
     connection: 'close',
@@ -28,7 +28,7 @@ module.exports = () => {
 
   nock('https://slack.com:443', {"encodedQueryParams":true})
     .get('/api/chat.postMessage')
-    .query({"token":"xoxb-19207505700-wwXgGMCWEVqSXFHpq6bOLz3A","channel":"C0K673QFM","text":"Dummy%20message%20for%20now","as_user":"true"})
+    .query(true)
     .reply(200, {"ok":true,"channel":"C0K673QFM","ts":"1454703683.000019","message":{"type":"message","user":"U0K63EVLL","text":"Dummy message for now","ts":"1454703683.000019"}}, { 'content-type': 'application/json; charset=utf-8',
     'content-length': '162',
     connection: 'close',
@@ -51,7 +51,7 @@ module.exports = () => {
 
   nock('https://slack.com:443', {"encodedQueryParams":true})
     .get('/api/chat.delete')
-    .query({"token":"xoxb-19207505700-wwXgGMCWEVqSXFHpq6bOLz3A","channel":"C0K673QFM","ts":"1454703683.000019"})
+    .query(true)
     .reply(200, {"ok":true,"channel":"C0K673QFM","ts":"1454703683.000019"}, { 'content-type': 'application/json; charset=utf-8',
     'content-length': '58',
     connection: 'close',
@@ -73,7 +73,7 @@ module.exports = () => {
 
   nock('https://slack.com:443', {"encodedQueryParams":true})
     .get('/api/chat.postMessage')
-    .query({"token":"xoxb-19207505700-wwXgGMCWEVqSXFHpq6bOLz3A","channel":"C0K673QFM","text":"Dummy%20message%20for%20now","as_user":"true"})
+    .query(true)
     .reply(200, {"ok":true,"channel":"C0K673QFM","ts":"1454703684.000021","message":{"type":"message","user":"U0K63EVLL","text":"Dummy message for now","ts":"1454703684.000021"}}, { 'content-type': 'application/json; charset=utf-8',
     'content-length': '162',
     connection: 'close',
@@ -96,7 +96,7 @@ module.exports = () => {
 
   nock('https://slack.com:443', {"encodedQueryParams":true})
     .get('/api/reactions.add')
-    .query({"token":"xoxb-19207505700-wwXgGMCWEVqSXFHpq6bOLz3A","channel":"C0K673QFM","timestamp":"1454703684.000021","name":"thumbsup"})
+    .query(true)
     .reply(200, {"ok":true}, { 'content-type': 'application/json; charset=utf-8',
     'content-length': '11',
     connection: 'close',
