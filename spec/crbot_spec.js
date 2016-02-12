@@ -15,9 +15,8 @@ describe('CRBot Server', () => {
   beforeAll((done) => {
     server = crbot.app.listen(3000, () => { done(); });
     nock.disableNetConnect();
-    nock.enableNetConnect(base_url);
+    nock.enableNetConnect('localhost:3000');
     mockGithub();
-    mockSlack();
   });
 
   afterAll(() => {
@@ -27,6 +26,25 @@ describe('CRBot Server', () => {
   });
 
   describe('POST /code_review', () => {
+    let messagePostMock;
+
+    beforeEach(() => {
+      messagePostMock = nock('https://slack.com')
+        .filteringPath(/token=[^&]*/, 'token=XXX')
+        .get('/api/chat.postMessage?token=XXX&channel=C2147483705&text=https%3A%2F%2Fapi.github.com%2Frepos%2Fsmashingboxes%2Fcode-review-bot%2Fpulls%2F1&as_user=true')
+        .reply(200, {
+          "ok": true,
+          "channel":"C0K673QFM",
+          "ts":"1454708667.000126",
+          "message": {
+            "type":"message",
+            "user":"U0K63EVLL",
+            "text":"Dummy message for now",
+            "ts":"1454708667.000126"
+          }
+        });
+    });
+
     it('returns 200', (done) => {
       formData = {
         token: 'test-token',
@@ -43,6 +61,7 @@ describe('CRBot Server', () => {
 
       request.post(base_url + 'code_review', { form: formData }, (error, response, body) => {
         expect(response.statusCode).toBe(200);
+        expect(messagePostMock.isDone()).toBe(true);
         done();
       });
     });
