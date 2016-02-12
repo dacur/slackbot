@@ -15,9 +15,8 @@ describe('CRBot Server', () => {
   beforeAll((done) => {
     server = crbot.app.listen(3000, () => { done(); });
     nock.disableNetConnect();
-    nock.enableNetConnect(base_url);
+    nock.enableNetConnect('localhost:3000');
     mockGithub();
-    mockSlack();
   });
 
   afterAll(() => {
