@@ -27,6 +27,25 @@ describe('CRBot Server', () => {
   });
 
   describe('POST /code_review', () => {
+    let messagePostMock;
+
+    beforeEach(() => {
+      messagePostMock = nock('https://slack.com')
+        .get('/api/chat.postMessage')
+        .query(true)
+        .reply(200, {
+          "ok": true,
+          "channel":"C0K673QFM",
+          "ts":"1454708667.000126",
+          "message": {
+            "type":"message",
+            "user":"U0K63EVLL",
+            "text":"Dummy message for now",
+            "ts":"1454708667.000126"
+          }
+        });
+    });
+
     it('returns 200', (done) => {
       formData = {
         token: 'test-token',
@@ -43,6 +62,7 @@ describe('CRBot Server', () => {
 
       request.post(base_url + 'code_review', { form: formData }, (error, response, body) => {
         expect(response.statusCode).toBe(200);
+        expect(messagePostMock.isDone()).toBe(true);
         done();
       });
     });
