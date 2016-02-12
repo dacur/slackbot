@@ -60,6 +60,7 @@ describe('CRBot Server', () => {
       }
 
       request.post(base_url + 'code_review', { form: formData }, (error, response, body) => {
+        console.log(response.headers);
         expect(response.statusCode).toBe(200);
         expect(messagePostMock.isDone()).toBe(true);
         done();
