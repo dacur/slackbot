@@ -430,5 +430,34 @@ nock('https://api.github.com:443', {
   'x-served-by': '173530fed4bbeb1e264b2ed22e8b5c20',
   'x-github-request-id': '48CDAEA0:14594:611EAE5:56B5153D'
 });
+
+nock('https://api.github.com:443', {"encodedQueryParams":true})
+  .get('/repos/smashingboxes/code-review-bot/issues/1/events')
+  .query(true)
+  .reply(200, [{"id":523423856,"url":"https://api.github.com/repos/smashingboxes/code-review-bot/issues/events/523423856","actor":{"login":"joeyjoejoejr","id":1141502,"avatar_url":"https://avatars.githubusercontent.com/u/1141502?v=3","gravatar_id":"","url":"https://api.github.com/users/joeyjoejoejr","html_url":"https://github.com/joeyjoejoejr","followers_url":"https://api.github.com/users/joeyjoejoejr/followers","following_url":"https://api.github.com/users/joeyjoejoejr/following{/other_user}","gists_url":"https://api.github.com/users/joeyjoejoejr/gists{/gist_id}","starred_url":"https://api.github.com/users/joeyjoejoejr/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/joeyjoejoejr/subscriptions","organizations_url":"https://api.github.com/users/joeyjoejoejr/orgs","repos_url":"https://api.github.com/users/joeyjoejoejr/repos","events_url":"https://api.github.com/users/joeyjoejoejr/events{/privacy}","received_events_url":"https://api.github.com/users/joeyjoejoejr/received_events","type":"User","site_admin":false},"event":"referenced","commit_id":"d32c9666035b7c60b9077efafeb2d364b60dd694","commit_url":"https://api.github.com/repos/smashingboxes/code-review-bot/commits/d32c9666035b7c60b9077efafeb2d364b60dd694","created_at":"2016-01-22T21:00:26Z"},{"id":523423857,"url":"https://api.github.com/repos/smashingboxes/code-review-bot/issues/events/523423857","actor":{"login":"joeyjoejoejr","id":1141502,"avatar_url":"https://avatars.githubusercontent.com/u/1141502?v=3","gravatar_id":"","url":"https://api.github.com/users/joeyjoejoejr","html_url":"https://github.com/joeyjoejoejr","followers_url":"https://api.github.com/users/joeyjoejoejr/followers","following_url":"https://api.github.com/users/joeyjoejoejr/following{/other_user}","gists_url":"https://api.github.com/users/joeyjoejoejr/gists{/gist_id}","starred_url":"https://api.github.com/users/joeyjoejoejr/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/joeyjoejoejr/subscriptions","organizations_url":"https://api.github.com/users/joeyjoejoejr/orgs","repos_url":"https://api.github.com/users/joeyjoejoejr/repos","events_url":"https://api.github.com/users/joeyjoejoejr/events{/privacy}","received_events_url":"https://api.github.com/users/joeyjoejoejr/received_events","type":"User","site_admin":false},"event":"merged","commit_id":"d32c9666035b7c60b9077efafeb2d364b60dd694","commit_url":"https://api.github.com/repos/smashingboxes/code-review-bot/commits/d32c9666035b7c60b9077efafeb2d364b60dd694","created_at":"2016-01-22T21:00:26Z"},{"id":523423860,"url":"https://api.github.com/repos/smashingboxes/code-review-bot/issues/events/523423860","actor":{"login":"joeyjoejoejr","id":1141502,"avatar_url":"https://avatars.githubusercontent.com/u/1141502?v=3","gravatar_id":"","url":"https://api.github.com/users/joeyjoejoejr","html_url":"https://github.com/joeyjoejoejr","followers_url":"https://api.github.com/users/joeyjoejoejr/followers","following_url":"https://api.github.com/users/joeyjoejoejr/following{/other_user}","gists_url":"https://api.github.com/users/joeyjoejoejr/gists{/gist_id}","starred_url":"https://api.github.com/users/joeyjoejoejr/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/joeyjoejoejr/subscriptions","organizations_url":"https://api.github.com/users/joeyjoejoejr/orgs","repos_url":"https://api.github.com/users/joeyjoejoejr/repos","events_url":"https://api.github.com/users/joeyjoejoejr/events{/privacy}","received_events_url":"https://api.github.com/users/joeyjoejoejr/received_events","type":"User","site_admin":false},"event":"closed","commit_id":null,"commit_url":null,"created_at":"2016-01-22T21:00:27Z"},{"id":523423933,"url":"https://api.github.com/repos/smashingboxes/code-review-bot/issues/events/523423933","actor":{"login":"joeyjoejoejr","id":1141502,"avatar_url":"https://avatars.githubusercontent.com/u/1141502?v=3","gravatar_id":"","url":"https://api.github.com/users/joeyjoejoejr","html_url":"https://github.com/joeyjoejoejr","followers_url":"https://api.github.com/users/joeyjoejoejr/followers","following_url":"https://api.github.com/users/joeyjoejoejr/following{/other_user}","gists_url":"https://api.github.com/users/joeyjoejoejr/gists{/gist_id}","starred_url":"https://api.github.com/users/joeyjoejoejr/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/joeyjoejoejr/subscriptions","organizations_url":"https://api.github.com/users/joeyjoejoejr/orgs","repos_url":"https://api.github.com/users/joeyjoejoejr/repos","events_url":"https://api.github.com/users/joeyjoejoejr/events{/privacy}","received_events_url":"https://api.github.com/users/joeyjoejoejr/received_events","type":"User","site_admin":false},"event":"head_ref_deleted","commit_id":null,"commit_url":null,"created_at":"2016-01-22T21:00:29Z"}], { server: 'GitHub.com',
+  date: 'Fri, 12 Feb 2016 23:09:41 GMT',
+  'content-type': 'application/json; charset=utf-8',
+  'content-length': '4801',
+  connection: 'close',
+  status: '200 OK',
+  'x-ratelimit-limit': '5000',
+  'x-ratelimit-remaining': '4994',
+  'x-ratelimit-reset': '1455322179',
+  'cache-control': 'public, max-age=60, s-maxage=60',
+  etag: '"651964555197fabbdf412f932888a53b"',
+  vary: 'Accept, Accept-Encoding',
+  'x-github-media-type': 'github.v3; format=json',
+  'access-control-allow-credentials': 'true',
+  'access-control-expose-headers': 'ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval',
+  'access-control-allow-origin': '*',
+  'content-security-policy': 'default-src \'none\'',
+  'strict-transport-security': 'max-age=31536000; includeSubdomains; preload',
+  'x-content-type-options': 'nosniff',
+  'x-frame-options': 'deny',
+  'x-xss-protection': '1; mode=block',
+  'x-served-by': '474556b853193c38f1b14328ce2d1b7d',
+  'x-github-request-id': '48CDAEA0:14594:F01E3C9:56BE6635' });
+
+
 }
 

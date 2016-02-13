@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "body-parser": "^1.14.2",
+    "deep-extend": "^0.4.1",
     "express": "^4.13.4",
     "github": "^0.2.4",
     "request-promise": "^2.0.0",
