@@ -9,7 +9,7 @@ const mockGithub = require('./support/mockGithub.js');
 const mockSlack = require('./support/mockSlack.js');
 const nock = require('nock');
 
-describe('CRBot Server', () => {
+describe(`${__filename.slice(__dirname.length + 1)}: CRBot Server`, () => {
   let server, formData;
 
   beforeAll((done) => {
@@ -59,8 +59,10 @@ describe('CRBot Server', () => {
         response_url: 'https://hooks.slack.com/commands/1234/5678'
       }
 
+      spyOn(crbot, 'getPR').and.callThrough();
+
       request.post(base_url + 'code_review', { form: formData }, (error, response, body) => {
-        console.log(response.headers);
+        console.log(crbot.getPR());
         expect(response.statusCode).toBe(200);
         expect(messagePostMock.isDone()).toBe(true);
         done();

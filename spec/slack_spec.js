@@ -7,7 +7,7 @@ let CrBot = require('../lib/crbot');
 let crBot = new CrBot(require('../config.json'));
 let slack = new SlackAPI(crBot);
 
-describe('Slack', () => {
+describe(`${__filename.slice(__dirname.length + 1)}: Slack API`, () => {
   beforeAll(() => {
     nock.disableNetConnect();
     mockSlack();
