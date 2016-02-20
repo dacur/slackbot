@@ -14,6 +14,7 @@ describe(`${__filename.slice(__dirname.length + 1)}: CRBot Server`, () => {
 
   beforeAll((done) => {
     server = crbot.app.listen(3000, () => { done(); });
+    //nock.recorder.rec();
     nock.disableNetConnect();
     nock.enableNetConnect('localhost:3000');
     mockGithub();
@@ -25,25 +26,27 @@ describe(`${__filename.slice(__dirname.length + 1)}: CRBot Server`, () => {
     nock.enableNetConnect();
   });
 
-  describe('POST /code_review', () => {
-    let messagePostMock;
+  let messagePostMock;
 
-    beforeEach(() => {
-      messagePostMock = nock('https://slack.com')
-        .filteringPath(/token=[^&]*/, 'token=XXX')
-        .get('/api/chat.postMessage?token=XXX&channel=C2147483705&text=https%3A%2F%2Fapi.github.com%2Frepos%2Fsmashingboxes%2Fcode-review-bot%2Fpulls%2F1&as_user=true')
-        .reply(200, {
-          "ok": true,
-          "channel":"C0K673QFM",
-          "ts":"1454708667.000126",
-          "message": {
-            "type":"message",
-            "user":"U0K63EVLL",
-            "text":"Dummy message for now",
-            "ts":"1454708667.000126"
-          }
-        });
-    });
+  beforeEach(() => {
+    messagePostMock = nock('https://slack.com')
+      .filteringPath(/token=[^&]*/, 'token=XXX')
+      .get('/api/chat.postMessage?token=XXX&channel=C2147483705&text=https%3A%2F%2Fapi.github.com%2Frepos%2Fsmashingboxes%2Fcode-review-bot%2Fpulls%2F1&as_user=true')
+      .reply(200, {
+        "ok": true,
+        "channel":"C0K673QFM",
+        "ts":"1454708667.000126",
+        "message": {
+          "type":"message",
+          "user":"U0K63EVLL",
+          "text":"Dummy message for now",
+          "ts":"1454708667.000126"
+        }
+      });
+    mockSlack();
+  });
+
+  describe('POST /code_review', () => {
 
     it('returns 200', (done) => {
       formData = {
@@ -59,13 +62,51 @@ describe(`${__filename.slice(__dirname.length + 1)}: CRBot Server`, () => {
         response_url: 'https://hooks.slack.com/commands/1234/5678'
       }
 
-      spyOn(crbot, 'getPR').and.callThrough();
-
       request.post(base_url + 'code_review', { form: formData }, (error, response, body) => {
-        console.log(crbot.getPR());
         expect(response.statusCode).toBe(200);
         expect(messagePostMock.isDone()).toBe(true);
         done();
+      });
+    });
+
+    it('adds a new CodeReview Instance', (done) => {
+
+      let req = {
+        body : {
+          token: 'test-token',
+          team_id: 'T0001',
+          team_domain: 'example',
+          channel_id: 'C2147483705',
+          channel_name: 'test',
+          user_id: 'U2147483697',
+          user_name: 'Steve',
+          command: '/cr',
+          text: 'github.com/smashingboxes/code-review-bot/pulls/1',
+          response_url: 'https://hooks.slack.com/commands/1234/5678'
+        }
+      };
+
+      let res = {
+        status: function () {
+          return this;
+        },
+        send: function () {
+          return this;
+        }
+      };
+
+      crbot.onIncomingCodeReview(req, res, () => {
+        fail();
+        done();
+      }).then((codeReview) => {
+        console.log(codeReview._created);
+        codeReview.emitter.on('killme', () => {
+          done();
+        }).catch((err) => {
+          console.log(err);
+          fail();
+          done();
+        })
       });
     });
   });

@@ -5,7 +5,6 @@ const base_url = 'http://localhost:3000/';
 const CrBot = require('../lib/crbot.js');
 const crbot = new CrBot(require('../config.json'));
 const mockGithub = require('./support/mockGithub.js');
-const mockSlack = require('./support/mockSlack.js');
 const nock = require('nock');
 
 
@@ -16,7 +15,6 @@ describe(`${__filename.slice(__dirname.length + 1)}: Github API`, () => {
     server = crbot.app.listen(3000, () => { done(); });
     //nock.recorder.rec(); //maybe you want to record later on, yah?
     nock.disableNetConnect();
-    nock.enableNetConnect('localhost:3000');
   });
 
   afterAll(() => {
@@ -28,7 +26,6 @@ describe(`${__filename.slice(__dirname.length + 1)}: Github API`, () => {
   describe('Demonstrate Getting PR Data from Github API', () => {
     beforeEach(() => {
       mockGithub();
-      mockSlack();
     });
 
     it('Returns Data with .url param that matches the request params.', (done) => {

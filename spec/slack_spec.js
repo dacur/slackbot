@@ -2,10 +2,9 @@
 
 let nock = require('nock');
 let mockSlack = require('./support/mockSlack');
-let SlackAPI = require('../lib/api.slack.js');
 let CrBot = require('../lib/crbot');
 let crBot = new CrBot(require('../config.json'));
-let slack = new SlackAPI(crBot);
+let slack = require('../lib/api.slack');
 
 describe(`${__filename.slice(__dirname.length + 1)}: Slack API`, () => {
   beforeAll(() => {

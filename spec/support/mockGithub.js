@@ -5,6 +5,7 @@ module.exports = function() {
 nock('https://api.github.com:443', {
   "encodedQueryParams": true
 })
+.persist()
 .get('/repos/smashingboxes/code-review-bot/pulls/1')
 .query(true)
 .reply(200, {
@@ -358,6 +359,7 @@ nock('https://api.github.com:443', {
 nock('https://api.github.com:443', {
   "encodedQueryParams": true
 })
+.persist()
 .get('/repos/smashingboxes/code-review-bot/pulls/1/files')
 .query(true)
 .reply(200, [{
@@ -434,6 +436,7 @@ nock('https://api.github.com:443', {
 nock('https://api.github.com:443', {
   "encodedQueryParams": true
 })
+.persist()
 .get('/repos/smashingboxes/code-review-bot/issues/1/events')
 .query(true)
 .reply(200, [{
@@ -571,6 +574,7 @@ nock('https://api.github.com:443', {
 nock('https://api.github.com:443', {
   "encodedQueryParams": true
 })
+.persist()
 .get('/repos/smashingboxes/code-review-bot/issues/1/comments')
 .query(true)
 .reply(200, [{
