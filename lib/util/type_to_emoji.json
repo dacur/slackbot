@@ -18,7 +18,6 @@
   "JavaScript": ":cr-js:",
   "CoffeeScript": ":cr-js:",
   "JSON": ":cr-js:",
-  "JSX": ":cr-js:",
-  "Jade": ":cr-js:",
+  "JSX": ":cr-react:",
   "Ruby": ":cr-ruby:"
 }
