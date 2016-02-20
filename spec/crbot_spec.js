@@ -31,7 +31,9 @@ describe(`${__filename.slice(__dirname.length + 1)}: CRBot Server`, () => {
   beforeEach(() => {
     messagePostMock = nock('https://slack.com')
       .filteringPath(/token=[^&]*/, 'token=XXX')
-      .get('/api/chat.postMessage?token=XXX&channel=C2147483705&text=https%3A%2F%2Fapi.github.com%2Frepos%2Fsmashingboxes%2Fcode-review-bot%2Fpulls%2F1&as_user=true')
+      .get((uri) => {
+        return uri.match(/chat\.postMessage/);
+      })
       .reply(200, {
         "ok": true,
         "channel":"C0K673QFM",

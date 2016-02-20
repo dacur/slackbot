@@ -1,0 +1,5 @@
+{
+  "small": [":cr-atomic:", ":ant:"],
+  "medium": [":monkey:", ":cow:", ":frog:", ":doge:"],
+  "large": [":elephant:"]
+}
