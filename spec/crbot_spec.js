@@ -45,7 +45,6 @@ describe(`${__filename.slice(__dirname.length + 1)}: CRBot Server`, () => {
           "ts":"1454708667.000126"
         }
       });
-    mockSlack();
   });
 
   describe('POST /code_review', () => {
@@ -106,6 +105,7 @@ describe(`${__filename.slice(__dirname.length + 1)}: CRBot Server`, () => {
           done();
         }).catch((err) => {
           console.log(err);
+          console.trace();
           fail();
           done();
         })
