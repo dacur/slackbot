@@ -1,10 +1,11 @@
 const nock = require('nock');
 
-module.exports = function () {
+module.exports = function() {
 
 nock('https://api.github.com:443', {
   "encodedQueryParams": true
 })
+.persist()
 .get('/repos/smashingboxes/code-review-bot/pulls/1')
 .query(true)
 .reply(200, {
@@ -358,6 +359,7 @@ nock('https://api.github.com:443', {
 nock('https://api.github.com:443', {
   "encodedQueryParams": true
 })
+.persist()
 .get('/repos/smashingboxes/code-review-bot/pulls/1/files')
 .query(true)
 .reply(200, [{
@@ -430,5 +432,205 @@ nock('https://api.github.com:443', {
   'x-served-by': '173530fed4bbeb1e264b2ed22e8b5c20',
   'x-github-request-id': '48CDAEA0:14594:611EAE5:56B5153D'
 });
-}
 
+nock('https://api.github.com:443', {
+  "encodedQueryParams": true
+})
+.persist()
+.get('/repos/smashingboxes/code-review-bot/issues/1/events')
+.query(true)
+.reply(200, [{
+  "id": 523423856,
+  "url": "https://api.github.com/repos/smashingboxes/code-review-bot/issues/events/523423856",
+  "actor": {
+    "login": "joeyjoejoejr",
+    "id": 1141502,
+    "avatar_url": "https://avatars.githubusercontent.com/u/1141502?v=3",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/joeyjoejoejr",
+    "html_url": "https://github.com/joeyjoejoejr",
+    "followers_url": "https://api.github.com/users/joeyjoejoejr/followers",
+    "following_url": "https://api.github.com/users/joeyjoejoejr/following{/other_user}",
+    "gists_url": "https://api.github.com/users/joeyjoejoejr/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/joeyjoejoejr/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/joeyjoejoejr/subscriptions",
+    "organizations_url": "https://api.github.com/users/joeyjoejoejr/orgs",
+    "repos_url": "https://api.github.com/users/joeyjoejoejr/repos",
+    "events_url": "https://api.github.com/users/joeyjoejoejr/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/joeyjoejoejr/received_events",
+    "type": "User",
+    "site_admin": false
+  },
+  "event": "referenced",
+  "commit_id": "d32c9666035b7c60b9077efafeb2d364b60dd694",
+  "commit_url": "https://api.github.com/repos/smashingboxes/code-review-bot/commits/d32c9666035b7c60b9077efafeb2d364b60dd694",
+  "created_at": "2016-01-22T21:00:26Z"
+}, {
+  "id": 523423857,
+  "url": "https://api.github.com/repos/smashingboxes/code-review-bot/issues/events/523423857",
+  "actor": {
+    "login": "joeyjoejoejr",
+    "id": 1141502,
+    "avatar_url": "https://avatars.githubusercontent.com/u/1141502?v=3",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/joeyjoejoejr",
+    "html_url": "https://github.com/joeyjoejoejr",
+    "followers_url": "https://api.github.com/users/joeyjoejoejr/followers",
+    "following_url": "https://api.github.com/users/joeyjoejoejr/following{/other_user}",
+    "gists_url": "https://api.github.com/users/joeyjoejoejr/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/joeyjoejoejr/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/joeyjoejoejr/subscriptions",
+    "organizations_url": "https://api.github.com/users/joeyjoejoejr/orgs",
+    "repos_url": "https://api.github.com/users/joeyjoejoejr/repos",
+    "events_url": "https://api.github.com/users/joeyjoejoejr/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/joeyjoejoejr/received_events",
+    "type": "User",
+    "site_admin": false
+  },
+  "event": "merged",
+  "commit_id": "d32c9666035b7c60b9077efafeb2d364b60dd694",
+  "commit_url": "https://api.github.com/repos/smashingboxes/code-review-bot/commits/d32c9666035b7c60b9077efafeb2d364b60dd694",
+  "created_at": "2016-01-22T21:00:26Z"
+}, {
+  "id": 523423860,
+  "url": "https://api.github.com/repos/smashingboxes/code-review-bot/issues/events/523423860",
+  "actor": {
+    "login": "joeyjoejoejr",
+    "id": 1141502,
+    "avatar_url": "https://avatars.githubusercontent.com/u/1141502?v=3",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/joeyjoejoejr",
+    "html_url": "https://github.com/joeyjoejoejr",
+    "followers_url": "https://api.github.com/users/joeyjoejoejr/followers",
+    "following_url": "https://api.github.com/users/joeyjoejoejr/following{/other_user}",
+    "gists_url": "https://api.github.com/users/joeyjoejoejr/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/joeyjoejoejr/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/joeyjoejoejr/subscriptions",
+    "organizations_url": "https://api.github.com/users/joeyjoejoejr/orgs",
+    "repos_url": "https://api.github.com/users/joeyjoejoejr/repos",
+    "events_url": "https://api.github.com/users/joeyjoejoejr/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/joeyjoejoejr/received_events",
+    "type": "User",
+    "site_admin": false
+  },
+  "event": "closed",
+  "commit_id": null,
+  "commit_url": null,
+  "created_at": "2016-01-22T21:00:27Z"
+}, {
+  "id": 523423933,
+  "url": "https://api.github.com/repos/smashingboxes/code-review-bot/issues/events/523423933",
+  "actor": {
+    "login": "joeyjoejoejr",
+    "id": 1141502,
+    "avatar_url": "https://avatars.githubusercontent.com/u/1141502?v=3",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/joeyjoejoejr",
+    "html_url": "https://github.com/joeyjoejoejr",
+    "followers_url": "https://api.github.com/users/joeyjoejoejr/followers",
+    "following_url": "https://api.github.com/users/joeyjoejoejr/following{/other_user}",
+    "gists_url": "https://api.github.com/users/joeyjoejoejr/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/joeyjoejoejr/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/joeyjoejoejr/subscriptions",
+    "organizations_url": "https://api.github.com/users/joeyjoejoejr/orgs",
+    "repos_url": "https://api.github.com/users/joeyjoejoejr/repos",
+    "events_url": "https://api.github.com/users/joeyjoejoejr/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/joeyjoejoejr/received_events",
+    "type": "User",
+    "site_admin": false
+  },
+  "event": "head_ref_deleted",
+  "commit_id": null,
+  "commit_url": null,
+  "created_at": "2016-01-22T21:00:29Z"
+}], {
+  server: 'GitHub.com',
+  date: 'Fri, 19 Feb 2016 19:36:16 GMT',
+  'content-type': 'application/json; charset=utf-8',
+  'content-length': '4801',
+  connection: 'close',
+  status: '200 OK',
+  'x-ratelimit-limit': '5000',
+  'x-ratelimit-remaining': '4988',
+  'x-ratelimit-reset': '1455914174',
+  'cache-control': 'private, max-age=60, s-maxage=60',
+  etag: '"651964555197fabbdf412f932888a53b"',
+  'x-oauth-scopes': 'repo',
+  'x-accepted-oauth-scopes': 'repo',
+  vary: 'Accept, Authorization, Cookie, X-GitHub-OTP, Accept-Encoding',
+  'x-github-media-type': 'github.v3; format=json',
+  'access-control-allow-credentials': 'true',
+  'access-control-expose-headers': 'ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval',
+  'access-control-allow-origin': '*',
+  'content-security-policy': 'default-src \'none\'',
+  'strict-transport-security': 'max-age=31536000; includeSubdomains; preload',
+  'x-content-type-options': 'nosniff',
+  'x-frame-options': 'deny',
+  'x-xss-protection': '1; mode=block',
+  'x-served-by': 'a474937f3b2fa272558fa6dc951018ad',
+  'x-github-request-id': '48CDAEA0:C8D5:12DAB3BA:56C76EAF'
+});
+
+nock('https://api.github.com:443', {
+  "encodedQueryParams": true
+})
+.persist()
+.get('/repos/smashingboxes/code-review-bot/issues/1/comments')
+.query(true)
+.reply(200, [{
+  "url": "https://api.github.com/repos/smashingboxes/code-review-bot/issues/comments/174042930",
+  "html_url": "https://github.com/smashingboxes/code-review-bot/pull/1#issuecomment-174042930",
+  "issue_url": "https://api.github.com/repos/smashingboxes/code-review-bot/issues/1",
+  "id": 174042930,
+  "user": {
+    "login": "keeganbrown",
+    "id": 479440,
+    "avatar_url": "https://avatars.githubusercontent.com/u/479440?v=3",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/keeganbrown",
+    "html_url": "https://github.com/keeganbrown",
+    "followers_url": "https://api.github.com/users/keeganbrown/followers",
+    "following_url": "https://api.github.com/users/keeganbrown/following{/other_user}",
+    "gists_url": "https://api.github.com/users/keeganbrown/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/keeganbrown/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/keeganbrown/subscriptions",
+    "organizations_url": "https://api.github.com/users/keeganbrown/orgs",
+    "repos_url": "https://api.github.com/users/keeganbrown/repos",
+    "events_url": "https://api.github.com/users/keeganbrown/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/keeganbrown/received_events",
+    "type": "User",
+    "site_admin": false
+  },
+  "created_at": "2016-01-22T20:52:14Z",
+  "updated_at": "2016-01-22T20:52:14Z",
+  "body": "Optional comments regarding ES6 stuff. Otherwise +1."
+}], {
+  server: 'GitHub.com',
+  date: 'Fri, 19 Feb 2016 21:11:58 GMT',
+  'content-type': 'application/json; charset=utf-8',
+  'content-length': '1333',
+  connection: 'close',
+  status: '200 OK',
+  'x-ratelimit-limit': '5000',
+  'x-ratelimit-remaining': '4986',
+  'x-ratelimit-reset': '1455919689',
+  'cache-control': 'private, max-age=60, s-maxage=60',
+  etag: '"88bd9c40f6e87b430faa2e192235c126"',
+  'x-oauth-scopes': 'repo',
+  'x-accepted-oauth-scopes': '',
+  vary: 'Accept, Authorization, Cookie, X-GitHub-OTP, Accept-Encoding',
+  'x-github-media-type': 'github.v3; format=json',
+  'access-control-allow-credentials': 'true',
+  'access-control-expose-headers': 'ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval',
+  'access-control-allow-origin': '*',
+  'content-security-policy': 'default-src \'none\'',
+  'strict-transport-security': 'max-age=31536000; includeSubdomains; preload',
+  'x-content-type-options': 'nosniff',
+  'x-frame-options': 'deny',
+  'x-xss-protection': '1; mode=block',
+  'x-served-by': 'd0b3c2c33a23690498aa8e70a435a259',
+  'x-github-request-id': '48CDAEA0:1601F:DE69035:56C7851E'
+});
+
+
+}

@@ -8,13 +8,13 @@ const mockGithub = require('./support/mockGithub.js');
 const nock = require('nock');
 
 
-describe('CRBot Github API', () => {
+describe(`${__filename.slice(__dirname.length + 1)}: Github API`, () => {
   let server;
 
   beforeAll((done) => {
     server = crbot.app.listen(3000, () => { done(); });
+    //nock.recorder.rec(); //maybe you want to record later on, yah?
     nock.disableNetConnect();
-    mockGithub();
   });
 
   afterAll(() => {
@@ -24,6 +24,10 @@ describe('CRBot Github API', () => {
   });
 
   describe('Demonstrate Getting PR Data from Github API', () => {
+    beforeEach(() => {
+      mockGithub();
+    });
+
     it('Returns Data with .url param that matches the request params.', (done) => {
       let prReq = {
         'user': 'smashingboxes',
@@ -35,7 +39,7 @@ describe('CRBot Github API', () => {
         expect(promises[0].url).toBe(`https://api.github.com/repos/${prReq.user}/${prReq.repo}/pulls/${prReq.number}`);
         done();
       }).catch((err) => {
-        expect(false).toBe(true);
+        fail();
         done();
       });
     });

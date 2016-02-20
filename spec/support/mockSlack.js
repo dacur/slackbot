@@ -3,7 +3,7 @@
 let nock = require('nock');
 
 module.exports = () => {
-nock('https://slack.com:443', {"encodedQueryParams":true})
+nock('https://slack.com:443', {"encodedQueryParams":true}).persist()
   .get('/api/chat.postMessage')
   .query(true)
   .reply(200, {"ok":true,"channel":"C0K673QFM","ts":"1454708667.000126","message":{"type":"message","user":"U0K63EVLL","text":"Dummy message for now","ts":"1454708667.000126"}}, { 'content-type': 'application/json; charset=utf-8',
@@ -26,7 +26,7 @@ nock('https://slack.com:443', {"encodedQueryParams":true})
   via: '1.1 631585eaa766d0d1b2a196fb1d81ea69.cloudfront.net (CloudFront)',
   'x-amz-cf-id': 'tj4YNgM1VVBahdBmZfj714X2K6_RV2cEls2FQgWSCZzAuHe8ufxnNQ==' });
 
-nock('https://slack.com:443', {"encodedQueryParams":true})
+nock('https://slack.com:443', {"encodedQueryParams":true}).persist()
   .get('/api/chat.postMessage')
   .query(true)
   .reply(200, {"ok":true,"channel":"C0K673QFM","ts":"1454708667.000127","message":{"type":"message","user":"U0K63EVLL","text":"Dummy message for now","ts":"1454708667.000127"}}, { 'content-type': 'application/json; charset=utf-8',
@@ -49,7 +49,7 @@ nock('https://slack.com:443', {"encodedQueryParams":true})
   via: '1.1 9438b4fa578cbce283b48cf092373802.cloudfront.net (CloudFront)',
   'x-amz-cf-id': 'cYPUqGY7GFlG50V5C7Zm1ekCOaFGKQQfIKku3GS3Xs2bNCwp6gOSKA==' });
 
-nock('https://slack.com:443', {"encodedQueryParams":true})
+nock('https://slack.com:443', {"encodedQueryParams":true}).persist()
   .get('/api/chat.delete')
   .query(true)
   .reply(200, {"ok":true,"channel":"C0K673QFM","ts":"1454708667.000127"}, { 'content-type': 'application/json; charset=utf-8',
@@ -71,7 +71,7 @@ nock('https://slack.com:443', {"encodedQueryParams":true})
   via: '1.1 83038ba72c6b8f14ce170ee7b725175e.cloudfront.net (CloudFront)',
   'x-amz-cf-id': 'rvheI9kayWA8iedNMzKE4qouIVZPRvK21Jwv7sBrzhLZ10SB5jOCpg==' });
 
-nock('https://slack.com:443', {"encodedQueryParams":true})
+nock('https://slack.com:443', {"encodedQueryParams":true}).persist()
   .get('/api/chat.postMessage')
   .query(true)
   .reply(200, {"ok":true,"channel":"C0K673QFM","ts":"1454708668.000129","message":{"type":"message","user":"U0K63EVLL","text":"Dummy message for now","ts":"1454708668.000129"}}, { 'content-type': 'application/json; charset=utf-8',
@@ -94,7 +94,7 @@ nock('https://slack.com:443', {"encodedQueryParams":true})
   via: '1.1 30ee516a44bb8aab0201d3423b566498.cloudfront.net (CloudFront)',
   'x-amz-cf-id': 'Rx426IgAA-1LWJ1mO-d5815ur4ovslXi3Y57Zv-yM5lul0d95OqQxQ==' });
 
-nock('https://slack.com:443', {"encodedQueryParams":true})
+nock('https://slack.com:443', {"encodedQueryParams":true}).persist()
   .get('/api/reactions.add')
   .query(true)
   .reply(200, {"ok":true}, { 'content-type': 'application/json; charset=utf-8',
@@ -116,7 +116,7 @@ nock('https://slack.com:443', {"encodedQueryParams":true})
   via: '1.1 0a7fa1445751b2b1da3408b5e396772e.cloudfront.net (CloudFront)',
   'x-amz-cf-id': 'VdoRlYZYK2MdK80q9f-CFM1yAnwi38uTyX8ZaUwnjnMz6de9OJao1w==' });
 
-nock('https://slack.com:443', {"encodedQueryParams":true})
+nock('https://slack.com:443', {"encodedQueryParams":true}).persist()
   .get('/api/chat.postMessage')
   .query(true)
   .reply(200, {"ok":true,"channel":"C0K673QFM","ts":"1454708668.000130","message":{"type":"message","user":"U0K63EVLL","text":"Dummy message for now","ts":"1454708668.000130"}}, { 'content-type': 'application/json; charset=utf-8',
@@ -139,7 +139,7 @@ nock('https://slack.com:443', {"encodedQueryParams":true})
   via: '1.1 4a495e8480f789db14c4afa001a38181.cloudfront.net (CloudFront)',
   'x-amz-cf-id': 'BUMRSqjTX0sDujIeHX8GLIZBSk8p_wsn66x8a3rknc13V5atu-FWSA==' });
 
-nock('https://slack.com:443', {"encodedQueryParams":true})
+nock('https://slack.com:443', {"encodedQueryParams":true}).persist()
   .get('/api/chat.postMessage')
   .query(true)
   .reply(200, {"ok":true,"channel":"C0K673QFM","ts":"1454708668.000131","message":{"type":"message","user":"U0K63EVLL","text":"Repost","ts":"1454708668.000131"}}, { 'content-type': 'application/json; charset=utf-8',
