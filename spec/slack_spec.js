@@ -23,7 +23,10 @@ describe(`${__filename.slice(__dirname.length + 1)}: Slack API`, () => {
     codeReview = {
       channelID: "C0K673QFM",
       formattedMessage: () => "message",
-      isRepoPublic: () => true
+      title: () => "title",
+      body: () => "body",
+      authorThumbnail: () => "",
+      authorName: () => "Someone"
     };
   });
 
