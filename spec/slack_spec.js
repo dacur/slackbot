@@ -39,6 +39,16 @@ describe(`${__filename.slice(__dirname.length + 1)}: Slack API`, () => {
     });
   });
 
+  describe('Slack#updateCRMessage', () => {
+    it('posts an updated message', (done) => {
+      slack.createCRMessage(codeReview).then((codeReview) => {
+        return slack.updateCRMessage(codeReview, "merged");
+      }).then((codeReview) => {
+        done();
+      });
+    });
+  });
+
   describe('Slack#deleteCRMessages', () => {
     it('deletes all slack messages based on a codeReview', (done) => {
       slack.createCRMessage(codeReview).then((codeReview) => {
