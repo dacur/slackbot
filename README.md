@@ -11,3 +11,8 @@
 
 ## Tests
 1. `npm test`
+
+## Deploying
+1. Get the SB Digital Ocean key set up
+1. `npm install pm2 -g`
+1. `pm2 deploy ecosystem.json production`
