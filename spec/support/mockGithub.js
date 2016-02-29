@@ -632,5 +632,14 @@ nock('https://api.github.com:443', {
   'x-github-request-id': '48CDAEA0:1601F:DE69035:56C7851E'
 });
 
+nock('https://api.github.com:443', {
+  "encodedQueryParams": true
+})
+.persist()
+.get('/repos/smashingboxes/code-review-bot/pulls/1111111')
+.query(true)
+.reply(404, {
+  error: 'No PR here'
+});
 
 }
