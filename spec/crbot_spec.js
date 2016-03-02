@@ -144,12 +144,9 @@ describe(`${__filename.slice(__dirname.length + 1)}: CRBot Server`, () => {
         fail();
         done();
       }).then((codeReview) => {
-        //console.log(codeReview._created);
         codeReview.emitter.on('killme', () => {
           done();
         }).catch((err) => {
-          //console.log(err);
-          //console.trace();
           fail();
           done();
         })
