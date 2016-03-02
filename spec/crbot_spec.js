@@ -50,6 +50,7 @@ describe(`${__filename.slice(__dirname.length + 1)}: CRBot Server`, () => {
   describe('POST /code_review', () => {
 
     it('returns 200', (done) => {
+      mockSlack();
       formData = {
         token: 'test-token',
         team_id: 'T0001',
@@ -70,7 +71,50 @@ describe(`${__filename.slice(__dirname.length + 1)}: CRBot Server`, () => {
       });
     });
 
+    it('returns 404 for a malformed pr', (done) => {
+      mockSlack();
+      formData = {
+        token: 'test-token',
+        team_id: 'T0001',
+        team_domain: 'example',
+        channel_id: 'C2147483705',
+        channel_name: 'test',
+        user_id: 'U2147483697',
+        user_name: 'Steve',
+        command: '/cr',
+        text: 'blah blah blah this is an error',
+        response_url: 'https://hooks.slack.com/commands/1234/5678'
+      }
+
+      request.post(base_url + 'code_review', { form: formData }, (error, response, body) => {
+        expect(response.statusCode).toBe(404);
+        done();
+      });
+    });
+
+    it('returns 404 for a missing pr', (done) => {
+      mockSlack();
+      formData = {
+        token: 'test-token',
+        team_id: 'T0001',
+        team_domain: 'example',
+        channel_id: 'C2147483705',
+        channel_name: 'test',
+        user_id: 'U2147483697',
+        user_name: 'Steve',
+        command: '/cr',
+        text: 'blah blah blah this is an error',
+        response_url: 'https://hooks.slack.com/commands/1234/5678'
+      }
+
+      request.post(base_url + 'code_review', { form: formData }, (error, response, body) => {
+        expect(response.statusCode).toBe(404);
+        done();
+      });
+    });
+
     it('adds a new CodeReview Instance', (done) => {
+      mockSlack();
 
       let req = {
         body : {
@@ -100,12 +144,9 @@ describe(`${__filename.slice(__dirname.length + 1)}: CRBot Server`, () => {
         fail();
         done();
       }).then((codeReview) => {
-        console.log(codeReview._created);
         codeReview.emitter.on('killme', () => {
           done();
         }).catch((err) => {
-          console.log(err);
-          console.trace();
           fail();
           done();
         })
