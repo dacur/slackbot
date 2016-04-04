@@ -406,7 +406,6 @@
     ".litcoffee": "Literate CoffeeScript",
     ".ll": "LLVM",
     ".lmi": "Python",
-    ".lock": "JSON",
     ".logtalk": "Logtalk",
     ".lol": "LOLCODE",
     ".lookml": "LookML",
