@@ -11,7 +11,7 @@
   "HTML": ":cr-html:",
   "Jade": ":cr-html:",
   "Slim": ":cr-html:",
-  "ERB": ":cr-html:",
+  "HTML+ERB": ":cr-html:",
   "Haml": ":cr-html:",
   "Objective-C": ":cr-ios:",
   "Swift": ":cr-swift:",
