@@ -1,5 +1,13 @@
 {
-  "small": [":cr-atomic:", ":ant:"],
-  "medium": [":monkey:", ":cow:", ":frog:", ":doge:"],
-  "large": [":elephant:"]
+  "0": ":cr-atomic:",
+  "10": ":ant:",
+  "30": ":frog:",
+  "50": ":rooster:",
+  "75": ":doge:",
+  "100": ":monkey:",
+  "150": ":cow:",
+  "200": ":elephant:",
+  "300": ":whale:",
+  "500": ":earth_americas:",
+  "1000": ":milky_way:"
 }
