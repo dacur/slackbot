@@ -1,13 +1,17 @@
 {
   "0": ":cr-atomic:",
   "10": ":ant:",
-  "30": ":frog:",
-  "50": ":rooster:",
-  "75": ":doge:",
-  "100": ":monkey:",
-  "150": ":cow:",
-  "200": ":elephant:",
-  "300": ":whale:",
-  "500": ":earth_americas:",
-  "1000": ":milky_way:"
+  "20": ":frog:",
+  "60": ":rabbit2:",
+  "80": ":cat:",
+  "100": ":rooster:",
+  "150": ":doge:",
+  "200": ":monkey:",
+  "300": ":cow:",
+  "400": ":elephant:",
+  "600": ":whale:",
+  "800": ":death_star:",
+  "1000": ":earth_americas:",
+  "1500": ":saturn:",
+  "2000": ":milky_way:"
 }
