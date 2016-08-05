@@ -51,7 +51,7 @@ describe(`${__filename.slice(__dirname.length + 1)}: Slack API`, () => {
 
     let testUpdateStatus = (codeReview, itemStatus) => {
       return slack.createCRMessage(codeReview).then((codeReview) => {
-        let openMessage = slack.makeMessageData(codeReview, itemStatus);
+        let openMessage = slack.makeCRMessageData(codeReview, itemStatus);
         let attachments = JSON.parse(openMessage.attachments);
         expect(attachments[0].color).toBe(prEvents.color(itemStatus));
       });
