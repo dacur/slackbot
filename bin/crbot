@@ -17,7 +17,7 @@ let crbot = new CrBot(config);
 
 // TODO: add a port flag
 
-var logFile = fs.createWriteStream('./production.log', {flags: 'a'});
+var logFile = fs.createWriteStream('/home/node/log/crbot.log', {flags: 'a'});
 crbot.app.use(express.logger({stream: logFile}));
 
 crbot.app.listen(8888);
