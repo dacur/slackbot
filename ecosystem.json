@@ -2,7 +2,7 @@
   "apps" : [
     {
       "name"      : "Code Review Bot",
-      "script"    : "bin/crbot",
+      "script"    : "bin/crbot >> /home/node/log/crbot.log",
       "env": {
         "COMMON_VARIABLE": "true"
       },
