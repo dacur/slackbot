@@ -19,5 +19,6 @@
   "CoffeeScript": ":cr-js:",
   "JSON": ":cr-js:",
   "JSX": ":cr-react:",
-  "Ruby": ":cr-ruby:"
+  "Ruby": ":cr-ruby:",
+  "Elixir": ":cr-elixir:"
 }
