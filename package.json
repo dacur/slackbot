@@ -30,6 +30,7 @@
     "body-parser": "^1.14.2",
     "express": "^4.13.4",
     "github4": "^0.5.1",
+    "redis": "^2.6.2",
     "request-promise": "^2.0.0",
     "slack-api": "^0.1.11"
   }
