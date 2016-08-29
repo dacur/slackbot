@@ -139,8 +139,7 @@ describe(`${__filename.slice(__dirname.length + 1)}: CRBot Server`, () => {
         }
       };
 
-      console.log(crbot.ready);
-      crbot.ready.then(() => {
+      let onCRBotSetup = () => {
         crbot.onIncomingCodeReview(req, res, () => {
             fail();
             done();
@@ -156,7 +155,11 @@ describe(`${__filename.slice(__dirname.length + 1)}: CRBot Server`, () => {
                 done();
               });
           });
-      })
+      }
+
+      console.log(crbot.ready);
+      crbot.ready.then(onCRBotSetup).catch(onCRBotSetup);
+
     });
   });
 });
