@@ -32,6 +32,7 @@ describe(`${__filename.slice(__dirname.length + 1)}: Github API`, () => {
       let prReq = {
         'user': 'smashingboxes',
         'repo': 'code-review-bot',
+        'title': 'simple github_spec.js cr',
         'number' : '1'
       };
 

@@ -48,9 +48,7 @@ describe(`${__filename.slice(__dirname.length + 1)}: CRBot Server`, () => {
   });
 
   describe('POST /code_review', () => {
-
     it('returns 200', (done) => {
-      mockSlack();
       formData = {
         token: 'test-token',
         team_id: 'T0001',
@@ -63,7 +61,6 @@ describe(`${__filename.slice(__dirname.length + 1)}: CRBot Server`, () => {
         text: 'github.com/smashingboxes/code-review-bot/pulls/1',
         response_url: 'https://hooks.slack.com/commands/1234/5678'
       }
-
       request.post(base_url + 'code_review', { form: formData }, (error, response, body) => {
         expect(response.statusCode).toBe(200);
         expect(messagePostMock.isDone()).toBe(true);
@@ -73,6 +70,7 @@ describe(`${__filename.slice(__dirname.length + 1)}: CRBot Server`, () => {
 
     it('returns 404 for a malformed pr', (done) => {
       mockSlack();
+
       formData = {
         token: 'test-token',
         team_id: 'T0001',
@@ -94,6 +92,7 @@ describe(`${__filename.slice(__dirname.length + 1)}: CRBot Server`, () => {
 
     it('returns 404 for a missing pr', (done) => {
       mockSlack();
+
       formData = {
         token: 'test-token',
         team_id: 'T0001',
@@ -140,17 +139,24 @@ describe(`${__filename.slice(__dirname.length + 1)}: CRBot Server`, () => {
         }
       };
 
-      crbot.onIncomingCodeReview(req, res, () => {
-        fail();
-        done();
-      }).then((codeReview) => {
-        codeReview.emitter.on('killme', () => {
-          done();
-        }).catch((err) => {
-          fail();
-          done();
-        })
-      });
+      console.log(crbot.ready);
+      crbot.ready.then(() => {
+        crbot.onIncomingCodeReview(req, res, () => {
+            fail();
+            done();
+          })
+          .then((codeReview) => {
+            codeReview.emitter
+              .on('killme', () => {
+                console.log(crbot.activeReviews.length);
+                done();
+              })
+              .catch((err) => {
+                fail();
+                done();
+              });
+          });
+      })
     });
   });
 });
