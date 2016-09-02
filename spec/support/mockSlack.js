@@ -2,7 +2,7 @@
 
 let nock = require('nock');
 
-module.exports = () => {
+module.exports = function() {
 nock('https://slack.com:443', {"encodedQueryParams":true}).persist()
   .get('/api/chat.postMessage')
   .query(true)
@@ -161,4 +161,28 @@ nock('https://slack.com:443', {"encodedQueryParams":true}).persist()
   'x-cache': 'Miss from cloudfront',
   via: '1.1 4ee5063dc9b3d6f9bda9588d4fd84fe7.cloudfront.net (CloudFront)',
   'x-amz-cf-id': 'SFK9-DT1YdPVzvnWve5wD9Wi2VUczUVvFsISvNP4iO1hLG6f9b3h2w==' });
+
+nock('https://slack.com:443', {"encodedQueryParams":true}).persist()
+  .get('/api/chat.update')
+  .query(true)
+  .reply(200, {"ok":true,"channel":"C0K673QFM","ts":"1454708668.000131","message":{"type":"message","user":"U0K63EVLL","text":"Repost","ts":"1454708668.000131"}}, { 'content-type': 'application/json; charset=utf-8',
+  'content-length': '147',
+  connection: 'close',
+  'access-control-allow-origin': '*',
+  'cache-control': 'private, no-cache, no-store, must-revalidate',
+  'content-security-policy': 'referrer no-referrer;',
+  date: 'Fri, 05 Feb 2016 21:44:29 GMT',
+  expires: 'Mon, 26 Jul 1997 05:00:00 GMT',
+  pragma: 'no-cache',
+  server: 'Apache',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
+  'x-accepted-oauth-scopes': 'chat:write:user,client',
+  'x-content-type-options': 'nosniff',
+  'x-oauth-scopes': 'identify,read,post,client',
+  'x-xss-protection': '0',
+  vary: 'Accept-Encoding',
+  'x-cache': 'Miss from cloudfront',
+  via: '1.1 4ee5063dc9b3d6f9bda9588d4fd84fe7.cloudfront.net (CloudFront)',
+  'x-amz-cf-id': 'SFK9-DT1YdPVzvnWve5wD9Wi2VUczUVvFsISvNP4iO1hLG6f9b3h2w==' });
+
 }

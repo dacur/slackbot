@@ -20,5 +20,6 @@
   "JSON": ":cr-js:",
   "JSX": ":cr-react:",
   "Ruby": ":cr-ruby:",
+  "PHP": ":cr-php:",
   "Elixir": ":cr-elixir:"
 }

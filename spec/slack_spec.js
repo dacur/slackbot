@@ -76,21 +76,25 @@ describe(`${__filename.slice(__dirname.length + 1)}: Slack API`, () => {
 
   describe('Slack#deleteCRMessages', () => {
     it('deletes all slack messages based on a codeReview', (done) => {
-      slack.createCRMessage(codeReview).then((codeReview) => {
-        return slack.deleteCRMessages(codeReview);
-      }).then((codeReview) => {
-        done();
-      });
+      slack.createCRMessage(codeReview)
+        .then((codeReview) => {
+          return slack.deleteCRMessages(codeReview);
+        })
+        .then((codeReview) => {
+          done();
+        });
     });
   });
 
   describe('Slack#addReactionToPrMessage', () => {
     it('posts a reaction to a message', (done) => {
-      slack.createCRMessage(codeReview).then((codeReview) => {
-        return slack.addReactionToCRMessage(codeReview, "thumbsup");
-      }).then((codeReview) => {
-        done();
-      });
+      slack.createCRMessage(codeReview)
+        .then((codeReview) => {
+          return slack.addReactionToCRMessage(codeReview, "thumbsup");
+        })
+        .then((codeReview) => {
+          done();
+        });
     });
   });
 
