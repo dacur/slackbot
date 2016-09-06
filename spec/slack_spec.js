@@ -26,6 +26,10 @@ describe(`${__filename.slice(__dirname.length + 1)}: Slack API`, () => {
       formattedMessage: () => "message",
       title: () => "title",
       body: () => "body",
+      updateMessageIDs: (msgID) => {
+        codeReview.messageIDs = codeReview.messageIDs || [];
+        codeReview.messageIDs.push(msgID);
+      },
       authorThumbnail: () => "",
       authorName: () => "Someone"
     };
