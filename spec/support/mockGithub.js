@@ -632,6 +632,69 @@ nock('https://api.github.com:443', {
   'x-github-request-id': '48CDAEA0:1601F:DE69035:56C7851E'
 });
 
+
+nock('https://api.github.com:443', {
+  "encodedQueryParams": true
+})
+.persist()
+.get('/repos/smashingboxes/code-review-bot/pulls/1/comments')
+.query(true)
+.reply(200, [{
+  "url": "https://api.github.com/repos/smashingboxes/code-review-bot/issues/comments/174042930",
+  "html_url": "https://github.com/smashingboxes/code-review-bot/pull/1#issuecomment-174042930",
+  "issue_url": "https://api.github.com/repos/smashingboxes/code-review-bot/issues/1",
+  "id": 174042930,
+  "user": {
+    "login": "keeganbrown",
+    "id": 479440,
+    "avatar_url": "https://avatars.githubusercontent.com/u/479440?v=3",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/keeganbrown",
+    "html_url": "https://github.com/keeganbrown",
+    "followers_url": "https://api.github.com/users/keeganbrown/followers",
+    "following_url": "https://api.github.com/users/keeganbrown/following{/other_user}",
+    "gists_url": "https://api.github.com/users/keeganbrown/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/keeganbrown/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/keeganbrown/subscriptions",
+    "organizations_url": "https://api.github.com/users/keeganbrown/orgs",
+    "repos_url": "https://api.github.com/users/keeganbrown/repos",
+    "events_url": "https://api.github.com/users/keeganbrown/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/keeganbrown/received_events",
+    "type": "User",
+    "site_admin": false
+  },
+  "created_at": "2016-01-22T20:52:14Z",
+  "updated_at": "2016-01-22T20:52:14Z",
+  "body": "Optional comments regarding ES6 stuff. Otherwise +1."
+}], {
+  server: 'GitHub.com',
+  date: 'Fri, 19 Feb 2016 21:11:58 GMT',
+  'content-type': 'application/json; charset=utf-8',
+  'content-length': '1333',
+  connection: 'close',
+  status: '200 OK',
+  'x-ratelimit-limit': '5000',
+  'x-ratelimit-remaining': '4986',
+  'x-ratelimit-reset': '1455919689',
+  'cache-control': 'private, max-age=60, s-maxage=60',
+  etag: '"88bd9c40f6e87b430faa2e192235c126"',
+  'x-oauth-scopes': 'repo',
+  'x-accepted-oauth-scopes': '',
+  vary: 'Accept, Authorization, Cookie, X-GitHub-OTP, Accept-Encoding',
+  'x-github-media-type': 'github.v3; format=json',
+  'access-control-allow-credentials': 'true',
+  'access-control-expose-headers': 'ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval',
+  'access-control-allow-origin': '*',
+  'content-security-policy': 'default-src \'none\'',
+  'strict-transport-security': 'max-age=31536000; includeSubdomains; preload',
+  'x-content-type-options': 'nosniff',
+  'x-frame-options': 'deny',
+  'x-xss-protection': '1; mode=block',
+  'x-served-by': 'd0b3c2c33a23690498aa8e70a435a259',
+  'x-github-request-id': '48CDAEA0:1601F:DE69035:56C7851E'
+});
+
+
 nock('https://api.github.com:443', {
   "encodedQueryParams": true
 })
