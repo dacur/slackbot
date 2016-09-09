@@ -8,6 +8,8 @@
   },
   "scripts": {
     "start": "bin/crbot",
+    "dev": "nodemon bin/crbot",
+    "deploy": "pm2 deploy ecosystem.json production",
     "test": "./node_modules/.bin/jasmine"
   },
   "keywords": [
