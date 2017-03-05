@@ -4,7 +4,7 @@
   "description": "A code review slackbot",
   "repository": {
     "type": "git",
-    "url": "git://github.com/smashingboxes/code-review-bot.git"
+    "url": "git://github.com/dacur/slackbot.git"
   },
   "scripts": {
     "start": "bin/crbot",
