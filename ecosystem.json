@@ -16,7 +16,7 @@
       "user" : "node",
       "host" : "104.236.231.24",
       "ref"  : "origin/master",
-      "repo" : "https://github.com/dacur/slackbot.git",
+      "repo" : "git@github.com:dacur/slackbot.git",
       "path" : "/home/node/production",
       "post-deploy" : "npm install; pm2 startOrRestart ecosystem.json --env production"
     }
